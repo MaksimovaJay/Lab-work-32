@@ -8,6 +8,50 @@
     <title>Document</title>
 </head>
 <body>
+<script>
+    let userWin = 0
+    let computerWin = 0
+    const randomWords = ["Камень", "Ножницы", "Бумага"]
 
+    const randomWord = () => {
+        const computerChoice = Math.floor(Math.random() * randomWords.length)
+        return randomWords[computerChoice]
+    }
+
+    const computer = randomWord()
+
+
+    while (true) {
+        const userChoice = prompt('Давай сыграем в игру "Камень-Ножницы-Бумага" \n Введи свой выбор как на примере: ')
+        console.log(`Компьютер выбрал '${computer}' : Пользователь ввел '${userChoice}'`)
+
+        if (computer === userChoice) {
+            prompt(`У вас ничья! Компьютер выбрал ${computer} а ты ${userChoice}`)
+        } else if (computer === 'Камень' && userChoice === "Бумага") {
+            prompt(`Ура! Ты победил. Компьютер выбрал ${computer} а ты ${userChoice}`)
+            userWin++
+        } else if (computer === 'Камень' && userChoice === "Ножницы") {
+            prompt(`Увы! Ты проиграл! Компьютер выбрал '${computer}' а ты '${userChoice}'`)
+            computerWin++
+        } else if (computer === 'Бумага' && userChoice === "Ножницы") {
+            prompt(`Ура! Ты победил. Компьютер выбрал ${computer} а ты ${userChoice}`)
+            userWin++
+        } else if (computer === 'Бумага' && userChoice === "Камень") {
+            prompt(`Увы! Ты проиграл! Компьютер выбрал ${computer} а ты ${userChoice}`)
+            computerWin++
+        } else if (computer === 'Ножницы' && userChoice === "Камень") {
+            prompt(`Ура! Ты победил. Компьютер выбрал ${computer} а ты ${userChoice}`)
+            userWin++
+        } else if (computer === 'Ножницы' && userChoice === "Бумага") {
+            prompt(`Увы! Ты проиграл! Компьютер выбрал ${computer} а ты ${userChoice}`)
+            computerWin++
+        } else {
+            prompt(`Счет  ${userWin} :  ${computerWin}`)
+            console.log(`Счет  ${userWin} :  ${computerWin}`)
+            break
+        }
+    }
+
+</script>
 </body>
 </html>
