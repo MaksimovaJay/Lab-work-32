@@ -1,10 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-$END$
+<script>
+
+    const listOfWords = [
+        "Корабль", "Тетрадь", "Собака", "Студент", "Компас", "Волшебство", "Песочница", "Светофор",
+    ];
+    const randomWords = () => {
+        let computerWords = Math.floor(Math.random() * listOfWords.length)
+        return listOfWords[computerWords]
+    }
+
+    const randomWord = randomWords()
+    const arrayRandomWord = randomWord.split("")
+    const userUnderscore = Array(randomWord.length).fill("_");
+
+    const startGame = prompt('Давай поиграем в игру "Виселица"? \nТебе надо угадать слово по буквам, каждый раз когда введенная тобой буква верна, ты будешь видеть где ты угадал букву')
+    if (startGame === null) {
+        alert('Я буду ждать тебя чтобы поиграть')
+    } else {
+        while (true) {
+            const userLetter = prompt(`Ура, давай играть, угадай букву? \n Вот слова:${userUnderscore}${randomWord}`)
+            if (userLetter !== null) {
+                arrayRandomWord.forEach((letter, i) => {
+                    if (userLetter.toLowerCase() === letter.toLowerCase()) {
+                        const userUnderscoreAndLetter = userUnderscore[i] = letter;
+                        console.log(userUnderscoreAndLetter)
+                    }
+                })
+            } else {
+                break
+            }
+        }
+    }
+
+
+</script>
 </body>
 </html>
